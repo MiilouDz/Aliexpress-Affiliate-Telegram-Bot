@@ -1,8 +1,7 @@
-# AliExpress Affiliate Telegram BOT
+AliExpress Affiliate Telegram BOT  :
 
 https://t.me/AliXPromotion
 
-## Available Commands:
 - `get_affiliate_links`
 - `get_promotion_products`
 - `get_promotion_product_detail`
@@ -10,12 +9,11 @@ https://t.me/AliXPromotion
 - `get_hot_products`
 - `get_promotion_link`
 
-## How to Install:
+## How to install :
 
-```bash
-pip install telebot
-pip install python-aliexpress-api --upgrade
-python Bot.py
+ pip install telebot
+ pip install python-aliexpress-api --upgrade
+ python Bot.py
 
  OR just install requirements.txt
 
@@ -24,9 +22,7 @@ python Bot.py
  - Telegram bot Token
  - Tracking id (or write "default")
 
-OR just install from `requirements.txt` :
-```bash
-pip install -r requirements.txt
+
 
 ## How To get Aliexpress API : 
 # Sign Up for an Aliexpress Account:
