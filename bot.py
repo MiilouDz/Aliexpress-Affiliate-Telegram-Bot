@@ -11,8 +11,7 @@ from aliexpress_api import AliexpressApi, models
 import re
 import requests, json
 from urllib.parse import urlparse, parse_qs
-from keep_alive import keep_alive
-import urllib.parse
+
 # In[2]:
 
 bot = telebot.TeleBot('6613740819:AAEiGrOSCcuVNQTrzkhbJ4Bg29oBm6UU6nw')
@@ -26,8 +25,7 @@ btn1 = types.InlineKeyboardButton("⭐️ألعاب لجمع العملات ال
                                   callback_data="games")
 btn2 = types.InlineKeyboardButton("⭐️تخفيض العملات على منتجات السلة 🛒⭐️",
                                   callback_data='click')
-btn3 = types.InlineKeyboardButton("❤️ اشترك في القناة للمزيد من العروض ❤️",
-                                  url="https://t.me/AliXPromotion")
+
 btn4 = types.InlineKeyboardButton("🎬 شاهد كيفية عمل البوت 🎬",
                                   url="https://t.me/AliXPromotion/8")
 btn5 = types.InlineKeyboardButton(
@@ -100,16 +98,7 @@ def button_click(callback_query):
 def get_affiliate_links(message, message_id, link):
   try:
 
-    affiliate_link = aliexpress.get_affiliate_links(
-        f'https://star.aliexpress.com/share/share.htm?platform=AE&businessType=ProductDetail&redirectUrl={link}?sourceType=620&aff_fcid='
-    )
-    affiliate_link = affiliate_link[0].promotion_link
-
-    super_links = aliexpress.get_affiliate_links(
-        f'https://star.aliexpress.com/share/share.htm?platform=AE&businessType=ProductDetail&redirectUrl={link}?sourceType=562&aff_fcid='
-    )
-    super_links = super_links[0].promotion_link
-
+  
     limit_links = aliexpress.get_affiliate_links(
         f'https://star.aliexpress.com/share/share.htm?platform=AE&businessType=ProductDetail&redirectUrl={link}?sourceType=561&aff_fcid='
     )
@@ -120,7 +109,7 @@ def get_affiliate_links(message, message_id, link):
           '1000006468625',
           f'https://star.aliexpress.com/share/share.htm?platform=AE&businessType=ProductDetail&redirectUrl={link}'
       ])
-      price_pro = img_link[0].target_sale_price
+      price_pro = img_link[0].target.sale_price
       title_link = img_link[0].product_title
       img_link = img_link[0].product_main_image_url
       print(img_link)
@@ -164,7 +153,7 @@ def extract_link(text):
   link_pattern = r'https?://\S+|www\.\S+'
 
   # Find all occurrences of the pattern in the text
-  links = re.findall(link_pattern, text)
+  links = re.findall(link_pattern)
 
   if links:
     return links[0]
@@ -208,7 +197,7 @@ def get_affiliate_shopcart_link(link, message):
     bot.send_photo(message.chat.id, img_link3, caption=text2)
 
   except:
-    bot.send_message(message.chat.id, "حدث خطأ 🤷🏻‍♂️")
+    bot.send_message(message.id, "حدث خطأ 🤷🏻‍♂️")
 
 
 @bot.message_handler(func=lambda message: True)
@@ -253,4 +242,4 @@ def handle_callback_query(call):
 
 keep_alive()
 
-bot.infinity_polling(timeout=10, long_polling_timeout=5)
+infinity_polling(timeout=10, long_polling_timeout=5)
