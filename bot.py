@@ -15,9 +15,9 @@ from keep_alive import keep_alive
 import urllib.parse
 # In[2]:
 
-bot = telebot.TeleBot('0000000000:AAAAAAAAAAaaaaaaaaaaaaaaaaa')
-
-aliexpress = AliexpressApi('111111', 'qW3MlLGGetz7jnZOg8KkHpfCbTaTest',
+bot = telebot.TeleBot('6613740819:AAEiGrOSCcuVNQTrzkhbJ4Bg29oBm6UU6nw')
+  
+aliexpress = AliexpressApi('502336', 'qW3MlLGKtt7jnZOg8KkHpfCbTaac2LOq',
                            models.Language.EN, models.Currency.EUR, 'default')
 # In[3]:
 
